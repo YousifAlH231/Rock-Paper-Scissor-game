@@ -1,17 +1,51 @@
 # Rock-Paper-Scissor-game
-This is a simple console-based Rock Paper Scissors game built using C++.
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
 
-The program allows the user to play against the computer. The computer randomly selects between rock, paper, and scissor using the rand() function. The user inputs their choice, and the program compares both selections to determine the winner.
+int main()
+{
+    string arr[3] = {"rock", "paper", "scissor"};
+    string user;
+    int again;
 
-Features:
-- User vs Computer gameplay
-- Random computer choice using rand()
-- Win, lose, and draw logic
-- Option to replay the game
-- Beginner-friendly C++ logic using loops and conditionals
+    srand(time(0));
 
-This project helped me practice:
-- Arrays
-- Loops (do-while)
-- Condition statements (if-else)
-- Random number generation in C++
+    cout << "**************Welcome to Rock Paper Scissors!**************" << endl;
+
+    do {
+        cout << "\nChoose: rock, paper, or scissor: ";
+        cin >> user;
+
+        int random = rand() % 3;
+        string bot = arr[random];
+
+        cout << "I picked: " << bot << endl;
+
+        if(user == bot)
+        {
+            cout << "Draw!" << endl;
+        }
+        else if(
+            (user == "rock" && bot == "scissor") ||
+            (user == "paper" && bot == "rock") ||
+            (user == "scissor" && bot == "paper")
+        )
+        {
+            cout << "You win!" << endl;
+        }
+        else
+        {
+            cout << "I win!" << endl;
+        }
+        cout << endl;
+        cout << "Would you like to play this game again? (1 = yes, 0 = no): ";
+        cin >> again;
+
+    } while(again == 1);
+
+    cout << "Thanks for playing!" << endl;
+
+    return 0;
+}
