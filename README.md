@@ -8,7 +8,7 @@ A simple console-based game where the user plays against the computer.
 - Win/lose/draw logic
 - Replay option
 
-## What I learned
+## What I used
 - Arrays
 - Loops
 - Random number generation
